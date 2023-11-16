@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  race: one
+  class_name: one
+  background: one
+  level: 1
+  exp: 1
+  free_points: 1
+  str: 1
+  dex: 1
+  int: 1
+  con: 1
+
+two:
+  name: MyString
+  race: two
+  class_name: two
+  background: two
+  level: 1
+  exp: 1
+  free_points: 1
+  str: 1
+  dex: 1
+  int: 1
+  con: 1

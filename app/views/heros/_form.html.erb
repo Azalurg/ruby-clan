@@ -1,0 +1,72 @@
+<%= form_with(model: hero) do |form| %>
+  <% if hero.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(hero.errors.count, "error") %> prohibited this hero from being saved:</h2>
+
+      <ul>
+        <% hero.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :race_id, style: "display: block" %>
+    <%= form.text_field :race_id %>
+  </div>
+
+  <div>
+    <%= form.label :class_name_id, style: "display: block" %>
+    <%= form.text_field :class_name_id %>
+  </div>
+
+  <div>
+    <%= form.label :background_id, style: "display: block" %>
+    <%= form.text_field :background_id %>
+  </div>
+
+  <div>
+    <%= form.label :level, style: "display: block" %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div>
+    <%= form.label :exp, style: "display: block" %>
+    <%= form.number_field :exp %>
+  </div>
+
+  <div>
+    <%= form.label :free_points, style: "display: block" %>
+    <%= form.number_field :free_points %>
+  </div>
+
+  <div>
+    <%= form.label :str, style: "display: block" %>
+    <%= form.number_field :str %>
+  </div>
+
+  <div>
+    <%= form.label :dex, style: "display: block" %>
+    <%= form.number_field :dex %>
+  </div>
+
+  <div>
+    <%= form.label :int, style: "display: block" %>
+    <%= form.number_field :int %>
+  </div>
+
+  <div>
+    <%= form.label :con, style: "display: block" %>
+    <%= form.number_field :con %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
