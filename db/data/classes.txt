@@ -1,0 +1,12 @@
+paladin
+barbarian
+necromancer
+assassin
+sorcerer
+wizard
+monk
+ranger
+knight
+shaman
+cleric
+druid

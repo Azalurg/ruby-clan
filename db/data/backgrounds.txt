@@ -1,0 +1,17 @@
+alchemist
+weaver
+potter
+armorer
+mason
+painter
+farmer
+fisherman
+chef
+miner
+cartographer
+lumberjack
+blacksmith
+tanner
+jeweler
+woodcarver
+herbalist
