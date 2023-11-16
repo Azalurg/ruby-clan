@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  reward_exp: 1
+  reward_level: 1
+  max_level: 1
+  min_level: 1
+  classes: MyString
+  races: MyString
+  backgrounds: MyString
+
+two:
+  name: MyString
+  description: MyText
+  reward_exp: 1
+  reward_level: 1
+  max_level: 1
+  min_level: 1
+  classes: MyString
+  races: MyString
+  backgrounds: MyString
