@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Heros</h1>
-
-<div id="heros">
-  <% @heros.each do |hero| %>
-    <%= render hero %>
-    <p>
-      <%= link_to "Show this hero", hero %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New hero", new_hero_path %>
+<table id="heros">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Race</th>
+      <th>Class</th>
+      <th>Background</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @heros.each do |hero| %>
+    <tr>
+      <td><%= link_to "#{hero.name} (#{hero.level})", hero %></td>
+      <td><%= hero.race.name %></td>
+      <td><%= hero.class_name.name %></td>
+      <td><%= hero.background.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
