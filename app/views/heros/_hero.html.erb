@@ -1,57 +1,33 @@
 <div id="<%= dom_id hero %>">
-  <p>
-    <strong>Name:</strong>
-    <%= hero.name %>
-  </p>
-
-  <p>
-    <strong>Race:</strong>
-    <%= hero.race_id %>
-  </p>
-
-  <p>
-    <strong>Class name:</strong>
-    <%= hero.class_name_id %>
-  </p>
-
-  <p>
-    <strong>Background:</strong>
-    <%= hero.background_id %>
-  </p>
-
-  <p>
-    <strong>Level:</strong>
-    <%= hero.level %>
-  </p>
-
+  <h1><%= hero.name %> (<%= hero.level %>)</h1>
+  <h3><%= hero.race.name %> -  <%= hero.class_name.name %> - <%= hero.background.name %></h3>
   <p>
     <strong>Exp:</strong>
     <%= hero.exp %>
   </p>
 
-  <p>
-    <strong>Free points:</strong>
-    <%= hero.free_points %>
-  </p>
-
-  <p>
-    <strong>Str:</strong>
-    <%= hero.str %>
-  </p>
-
-  <p>
-    <strong>Dex:</strong>
-    <%= hero.dex %>
-  </p>
-
-  <p>
-    <strong>Int:</strong>
-    <%= hero.int %>
-  </p>
-
-  <p>
-    <strong>Con:</strong>
-    <%= hero.con %>
-  </p>
-
+  <table style="width: 30%;">
+    <tbody>
+      <tr>
+        <td>STR</td>
+        <td><%= hero.str %></td>
+      </tr>
+      <tr>
+        <td>DEX</td>
+        <td><%= hero.dex %></td>
+      </tr>
+      <tr>
+        <td>INT</td>
+        <td><%= hero.int %></td>
+      </tr>
+      <tr>
+        <td>CON</td>
+        <td><%= hero.con %></td>
+      </tr>
+      <tr>
+        <td>FREE POINTS</td>
+        <td><%= hero.free_points %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

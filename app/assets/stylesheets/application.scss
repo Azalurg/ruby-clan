@@ -55,3 +55,21 @@ a{
     color: $accent;
     text-decoration-style: double;
 }
+
+button, .button{
+    display: block;
+    width: fit-content;
+    background-color: $background-alt;
+    color: $foreground;
+    font-size: 1rem;
+    padding: 0.5rem 0.25rem;
+    border: none;
+    transition: 0.6s;
+    text-decoration: none;
+}
+
+button:hover, .button:hover{
+    background-color: $foreground;
+    color: $background;
+    cursor: pointer;
+}
