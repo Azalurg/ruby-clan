@@ -1,0 +1,57 @@
+$background: #fff;
+$background-alt: #ddd;
+$foreground: #111; 
+$accent: #47f;
+
+body{
+    margin: 0;
+    padding: 0;
+    color: $foreground;
+    background-color: $background;
+}
+
+header, footer{
+    // width: 100%;
+    padding: 1rem;
+    background-color: $background-alt;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: minmax(3rem, 12%) auto;
+    main{
+        // width: 100%;
+        padding: 0 1rem;
+    }
+
+    .sidebar{
+        padding-left: 1rem;
+        padding-top: 1rem;
+    }
+}
+
+
+
+table{
+    width: 100%;
+    padding: 0 1rem;
+    border-spacing: 0;
+    thead{
+        text-align: left;
+    }
+    td, th{
+        padding: 0.35rem 0.2rem;
+    }
+    th{
+        background-color: $foreground;
+        color: $background;
+    }
+    tr:nth-child(2n){
+        background-color: $background-alt;
+    }
+}
+
+a{
+    color: $accent;
+    text-decoration-style: double;
+}

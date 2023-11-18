@@ -2,14 +2,34 @@
 <html>
   <head>
     <title>RubyClan</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
+    <%= csp_meta_tag %> 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>Ruby Clan</header>
+    <div class="content">
+      <div class="sidebar">
+        <div class="pages">
+          <div class="pages-static">
+            <%= link_to "dashboard", root_path %>
+          </div>
+          <div class="pages-dynamic">
+            <%= link_to "heros", heros_path %>
+          </div>
+        </div>
+        <div class="options">
+          <h2>Options</h2>
+        </div>
+      </div>
+      <main>
+        <%= yield %>
+      </main>
+  </div>
+  <footer>
+    Ruby Clan
+  </footer>
   </body>
 </html>
