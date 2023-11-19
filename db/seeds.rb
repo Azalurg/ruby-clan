@@ -29,7 +29,7 @@ names.each do |name|
     race: Race.all.sample,
     class_name: ClassName.all.sample,
     background: Background.all.sample,
-    level: rand(0..50) * 4 + rand(1..150),
+    level: rand(0..50) * 2 + rand(0..50) * 2 + rand(1..150),
     exp: 0,
     free_points: 0,
     str: 0,

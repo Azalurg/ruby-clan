@@ -10,6 +10,7 @@
 
   <body>
     <header>Ruby Clan</header>
+    <br/>
     <div class="content">
       <div class="sidebar">
         <div class="pages">
@@ -27,8 +28,18 @@
         <%= yield %>
       </main>
   </div>
+  <br/>
   <footer>
     Ruby Clan
   </footer>
+
+  <% if notice.present? %>
+    <div class="notice"><%= notice %></div>
+  <% end %>
+
+  <% if alert.present? %>
+    <div class="notice alert"><%= alert %></div>
+  <% end %>
+
   </body>
 </html>

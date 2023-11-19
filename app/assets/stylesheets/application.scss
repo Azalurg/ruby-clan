@@ -2,6 +2,7 @@ $background: #fff;
 $background-alt: #ddd;
 $foreground: #111; 
 $accent: #47f;
+$alert : #f47;
 
 body{
     margin: 0;
@@ -72,4 +73,20 @@ button:hover, .button:hover{
     background-color: $foreground;
     color: $background;
     cursor: pointer;
+}
+
+.notice {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 200px;
+    height: initial;
+    padding: 1rem;
+    background-color: $accent;
+    color: $background;
+    text-align: justify;
+}
+
+.alert{
+    background-color: $alert;
 }
