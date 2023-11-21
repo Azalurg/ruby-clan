@@ -15,5 +15,7 @@ class CreateHeros < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+
+    add_index :heros, :name, unique: true
   end
 end

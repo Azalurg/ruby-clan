@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_134950) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_19_204203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_134950) do
     t.datetime "updated_at", null: false
     t.index ["background_id"], name: "index_heros_on_background_id"
     t.index ["class_name_id"], name: "index_heros_on_class_name_id"
+    t.index ["name"], name: "index_heros_on_name", unique: true
     t.index ["race_id"], name: "index_heros_on_race_id"
   end
 
@@ -72,6 +73,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_134950) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.bigint "hero_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["hero_id"], name: "index_users_on_hero_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "heros", "backgrounds"
   add_foreign_key "heros", "class_names"
   add_foreign_key "heros", "races"
@@ -80,4 +97,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_134950) do
   add_foreign_key "quests", "heros", column: "creator_id"
   add_foreign_key "quests", "heros", column: "owner_id"
   add_foreign_key "quests", "races"
+  add_foreign_key "users", "heros"
 end
