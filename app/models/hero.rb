@@ -7,25 +7,40 @@ class Hero < ApplicationRecord
   before_save :level_up
 
   def get_exp_limit
-    if self.level <= 70
-      2 * self.level * (self.level - 1)
-    elsif self.level <= 150
-      5 * self.level * (self.level - 1) - 350 * self.level + 9941
-    elsif self.level <= 300
-      9 * self.level * (self.level - 1) - 950 * self.level + 9940
-    elsif self.level > 300
-      13 * self.level * (self.level - 1) - 2150 * self.level + 9935
+    if level <= 70
+      2 * level * (level - 1)
+    elsif level <= 150
+      5 * level * (level - 1) - 350 * level + 9941
+    elsif level <= 300
+      9 * level * (level - 1) - 950 * level + 9940
+    elsif level > 300
+      13 * level * (level - 1) - 2150 * level + 9935
     end
   end
 
   def level_up
-    while self.exp >= self.get_exp_limit
-      self.exp -= self.get_exp_limit
+    while exp >= get_exp_limit
+      self.exp -= get_exp_limit
       self.level += 1
-      self.free_points += 5 if self.level % 10 == 0
-      self.free_points += 5 
+      self.free_points += 5 if (self.level % 10).zero?
+      self.free_points += 5
     end
-  
+  end
+
+  def asign_points
+    while self.free_points.positive?
+      case rand(0..3)
+      when 0
+        self.str += 1
+      when 1
+        self.dex += 1
+      when 2
+        self.int += 1
+      else
+        self.con += 1
+      end
+      self.free_points -= 1
+    end
   end
 
   def self.median(column)
@@ -40,5 +55,5 @@ class Hero < ApplicationRecord
     rounded_values.each { |value| counts[value] += 1 }
     dominant_values = counts.select { |_value, count| count == counts.values.max }.keys
     dominant_values[0]
-    end
+  end
 end
