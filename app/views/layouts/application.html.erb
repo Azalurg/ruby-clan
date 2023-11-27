@@ -4,42 +4,37 @@
     <title>RubyClan</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %> 
+    <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-
   <body>
     <header>Ruby Clan</header>
     <br/>
     <div class="content">
       <div class="sidebar">
-        <div class="pages">
-          <div class="pages-static">
-            <%= link_to "dashboard", root_path %>
-          </div>
-          <div class="pages-dynamic">
-            <%= link_to "heros", heros_path %>
-          </div>
+        <div class="pages-static">
+          <%= link_to "dashboard", root_path %>
         </div>
-        <div class="options">
+        <div class="pages-dynamic">
+          <%= link_to "heros", heros_path %>
+          <%= link_to "quests", quests_path %>
+        </div>
+        <div class="pages-options">
         </div>
       </div>
       <main>
         <%= yield %>
       </main>
-  </div>
-  <br/>
-  <footer>
-    Ruby Clan
-  </footer>
-
-  <% if notice.present? %>
-    <div class="notice"><%= notice %></div>
-  <% end %>
-
-  <% if alert.present? %>
-    <div class="notice alert"><%= alert %></div>
-  <% end %>
-
+    </div>
+    <br/>
+    <footer>
+      Ruby Clan
+    </footer>
+    <% if notice.present? %>
+      <div class="notice"><%= notice %></div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="notice alert"><%= alert %></div>
+    <% end %>
   </body>
 </html>

@@ -3,9 +3,8 @@
   <h3><%= hero.race.name %> -  <%= hero.class_name.name %> - <%= hero.background.name %></h3>
   <p>
     <strong>Exp:</strong>
-    <%= hero.exp %>
+    <%= hero.exp %> / <%= hero.get_exp_limit %>
   </p>
-
   <table style="width: 30%;">
     <tbody>
       <tr>

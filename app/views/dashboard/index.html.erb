@@ -1,5 +1,4 @@
 <h1>Top 10 Heroes</h1>
-
 <table>
   <thead>
     <tr>
@@ -20,56 +19,87 @@
     <% end %>
   </tbody>
 </table>
-
 <div style="display: flex; width: 80%; margin: 1rem auto; justify-content: space-evenly; align-items: flex-start">
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @clases.each do |class_name, count| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= class_name.try(:name) || class_name %></td>
-        <td><%= count %></td>
+        <th>Param</th>
+        <th>Stat</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Races</th>
-      <th>Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @races.each do |race, count| %>
+    </thead>
+    <tbody>
       <tr>
-        <td><%= race.try(:name) || race %></td>
-        <td><%= count %></td>
+        <td>avg_level</td>
+        <td><%= @avg_level %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Background</th>
-      <th>Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @backgrounds.each do |background, count| %>
       <tr>
-        <td><%= background.try(:name) || background %></td>
-        <td><%= count %></td>
+        <td>median_level</td>
+        <td><%= @median_level %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <td>dominant_level</td>
+        <td><%= @dominant_level %></td>
+      </tr>
+      <tr>
+        <td>min_level</td>
+        <td><%= @min_level %></td>
+      </tr>
+      <tr>
+        <td>max_level</td>
+        <td><%= @max_level %></td>
+      </tr>
+      <tr>
+        <td>total_heroes</td>
+        <td><%= @total_heroes %></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clases.each do |class_name, count| %>
+        <tr>
+          <td><%= class_name.try(:name) || class_name %></td>
+          <td><%= count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Races</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @races.each do |race, count| %>
+        <tr>
+          <td><%= race.try(:name) || race %></td>
+          <td><%= count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Background</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @backgrounds.each do |background, count| %>
+        <tr>
+          <td><%= background.try(:name) || background %></td>
+          <td><%= count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
