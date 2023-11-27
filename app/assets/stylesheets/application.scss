@@ -1,7 +1,8 @@
-$background: #fff;
-$background-alt: #ddd;
-$foreground: #111; 
-$accent: #47f;
+$background: #022;
+$background-alt: #133;
+$foreground: #ddf; 
+$accent: #7ee;
+$accent-alt: #4ff;
 $alert : #f47;
 
 body{
@@ -55,6 +56,10 @@ table{
 a{
     color: $accent;
     text-decoration-style: double;
+}
+
+a:hover{
+    color: $accent-alt;
 }
 
 button, .button{
