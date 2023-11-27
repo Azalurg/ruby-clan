@@ -1,12 +1,15 @@
 <h1>Quests</h1>
-
+<%= link_to "New quest", new_quest_path %>
+<br/>
 <div id="quests">
-  <% @quests.each do |quest| %>
-    <%= render quest %>
-    <p>
-      <%= link_to "Show this quest", quest %>
-    </p>
+  <% @primary_statuses.each do | ps | %>
+    <div>
+      <h1><%= ps.name %></h1>
+      <% @quests.each do | quest | %>
+        <% if quest.status.primary_status == ps %>
+          <li><%= link_to quest.name, quest %></li>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New quest", new_quest_path %>

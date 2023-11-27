@@ -90,7 +90,7 @@ PrimaryStatus.create(
 
 PrimaryStatus.create(
   name: 'In Progress',
-  secondary_status: [ 
+  secondary_status: [
     SecondaryStatus.create(name: 'Collecting Materials'),
     SecondaryStatus.create(name: 'Talking to NPC'),
     SecondaryStatus.create(name: 'Exploring Dungeon'),
@@ -125,9 +125,9 @@ quests.each do |quest|
     name: quest,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     reward_exp: rng < 10 ? rand(0..100_000) : 0,
-    reward_level: rng >= 10 ? rand(0..10) : 0,
-    max_level: rng < 6 ? rand(200..300) : 500,
-    min_level: rng < 6 ? rand(0..100) : 0,
+    reward_level: rng >= 10 ? rng % 4 + 1 : 0,
+    max_level: (rng % 3).zero? ? 200 : 500,
+    min_level: rng.even? ? 100 : 0,
     owner: Hero.all.sample,
     creator: Hero.all.sample,
     status: SecondaryStatus.all.sample

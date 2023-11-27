@@ -8,13 +8,13 @@ class Hero < ApplicationRecord
 
   def get_exp_limit
     if level <= 70
-      2 * level * (level - 1)
+      2 * level * (level - 1) + 10
     elsif level <= 150
-      5 * level * (level - 1) - 350 * level + 9941
+      5 * level * (level - 1) - 350 * level + 9951
     elsif level <= 300
-      9 * level * (level - 1) - 950 * level + 9940
+      9 * level * (level - 1) - 950 * level + 9950
     elsif level > 300
-      13 * level * (level - 1) - 2150 * level + 9935
+      13 * level * (level - 1) - 2150 * level + 9945
     end
   end
 
