@@ -46,6 +46,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_204203) do
     t.index ["race_id"], name: "index_heros_on_race_id"
   end
 
+  create_table "primary_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "quests", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
@@ -53,24 +59,28 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_204203) do
     t.integer "reward_level", null: false
     t.integer "max_level"
     t.integer "min_level"
-    t.bigint "race_id"
-    t.bigint "class_name_id"
-    t.bigint "background_id"
     t.bigint "owner_id", null: false
     t.bigint "creator_id", null: false
+    t.bigint "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["background_id"], name: "index_quests_on_background_id"
-    t.index ["class_name_id"], name: "index_quests_on_class_name_id"
     t.index ["creator_id"], name: "index_quests_on_creator_id"
     t.index ["owner_id"], name: "index_quests_on_owner_id"
-    t.index ["race_id"], name: "index_quests_on_race_id"
+    t.index ["status_id"], name: "index_quests_on_status_id"
   end
 
   create_table "races", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "secondary_statuses", force: :cascade do |t|
+    t.string "name"
+    t.bigint "primary_status_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["primary_status_id"], name: "index_secondary_statuses_on_primary_status_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,10 +102,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_19_204203) do
   add_foreign_key "heros", "backgrounds"
   add_foreign_key "heros", "class_names"
   add_foreign_key "heros", "races"
-  add_foreign_key "quests", "backgrounds"
-  add_foreign_key "quests", "class_names"
   add_foreign_key "quests", "heros", column: "creator_id"
   add_foreign_key "quests", "heros", column: "owner_id"
-  add_foreign_key "quests", "races"
+  add_foreign_key "quests", "secondary_statuses", column: "status_id"
+  add_foreign_key "secondary_statuses", "primary_statuses"
   add_foreign_key "users", "heros"
 end
